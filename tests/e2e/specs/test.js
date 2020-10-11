@@ -41,4 +41,14 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '2');
   })
+
+  it('should chain multiple operations together and display the total', () => {
+    cy.get('#number2').click();
+    cy.get('#operator_add').click();
+    cy.get('#number3').click();
+    cy.get('#operator_subtract').click();
+    cy.get("#number4").click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '1');
+  })
 })
