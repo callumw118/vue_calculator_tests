@@ -41,9 +41,20 @@ describe('App.vue', () => {
 
   it('should chain multiple operations together', () =>{
     const wrapper = shallowMount(App);
-    wrapper.vm.previousTotal = 2;
-    wrapper.vm.add('2');
+    wrapper.vm.previousTotal = 0;
+    wrapper.vm.numberClick('2');
+    wrapper.vm.operatorClick('+');
+    wrapper.vm.numberClick('2');
     wrapper.vm.operatorClick('-');
-    expect(wrapper.vm.runningTotal).to.equal(4);
+    wrapper.vm.numberClick('3');
+    wrapper.vm.operatorClick('=');
+    expect(wrapper.vm.runningTotal).to.equal(1);
+  })
+
+  it('should clear the running total without affecting the calculation', () => {
+    const wrapper = shallowMount(App);
+    wrapper.vm.runningTotal = 2;
+    wrapper.vm.clearClick();
+    expect(wrapper.vm.runningTotal).to.equal(0);
   })
 })
