@@ -59,4 +59,12 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '-2');
   })
+
+  it('should work for decimal numbers', () =>{
+    cy.get('#number5').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number2').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '2.5');
+  })
 })
