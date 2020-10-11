@@ -30,4 +30,12 @@ describe('App.vue', () => {
     wrapper.vm.divide('7');
     expect(wrapper.vm.runningTotal).to.equal(3);
   })
+
+  it('should concatenate numbers together', () => {
+    const wrapper = shallowMount(App);
+    wrapper.vm.previousTotal = 0;
+    wrapper.vm.numberClick(4);
+    wrapper.vm.numberClick(2);
+    expect(wrapper.vm.runningTotal).to.equal(42);
+  })
 })
