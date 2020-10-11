@@ -85,4 +85,12 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '777776778');
   })
+
+  it('should not return infinity when dividing by zero', () =>{
+    cy.get('#number5').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number0').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '0');
+  })
 })

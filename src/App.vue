@@ -93,6 +93,11 @@ export default {
     },
     divide(number) {
       this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+      
+      if (this.runningTotal == Infinity) {
+      this.runningTotal = 0
+    }
+
     },
   },
 };
