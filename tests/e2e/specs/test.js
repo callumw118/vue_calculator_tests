@@ -67,4 +67,22 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '2.5');
   })
+
+  it('should work for very large numbers', () =>{
+    cy.get('#number7').click();
+    cy.get('#number7').click();
+    cy.get('#number7').click();
+    cy.get('#number7').click();
+    cy.get('#number7').click();
+    cy.get('#number7').click();
+    cy.get('#number7').click();
+    cy.get('#number7').click();
+    cy.get('#number7').click();
+    cy.get('#operator_subtract').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#number9').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '777776778');
+  })
 })
