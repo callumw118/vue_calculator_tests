@@ -38,4 +38,12 @@ describe('App.vue', () => {
     wrapper.vm.numberClick(2);
     expect(wrapper.vm.runningTotal).to.equal(42);
   })
+
+  it('should chain multiple operations together', () =>{
+    const wrapper = shallowMount(App);
+    wrapper.vm.previousTotal = 2;
+    wrapper.vm.add('2');
+    wrapper.vm.operatorClick('-');
+    expect(wrapper.vm.runningTotal).to.equal(4);
+  })
 })
